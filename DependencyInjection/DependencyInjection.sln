@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{529AE6D1-0131-4054-8793-AA48121EABCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{529AE6D1-0131-4054-8793-AA48121EABCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529AE6D1-0131-4054-8793-AA48121EABCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529AE6D1-0131-4054-8793-AA48121EABCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529AE6D1-0131-4054-8793-AA48121EABCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
