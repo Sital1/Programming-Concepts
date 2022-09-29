@@ -1,22 +1,30 @@
-﻿namespace DependencyInjection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DependencyInjection;
 
 public class DependencyContainer
 {
-    List<Type> _dependencies;
+    List<Dependency> _dependencies;
 
-    public void AddDependency(Type type)
+    public DependencyContainer()
     {
-        _dependencies = new List<Type>();
-        _dependencies.Add(type);
+        _dependencies = new List<Dependency>();
     }
 
-    public void AddDependency<T>()
+    public void AddSingleton<T>()
     {
-        _dependencies.Add(typeof(T));
+        _dependencies.Add(new Dependency(typeof(T),DependencyLifeTime.Singleton));
     }
 
-    public Type GetDependency(Type type)
+    public void AddTransient<T>()
     {
-        return _dependencies.First(x => x.Name == type.Name);
+        _dependencies.Add(new Dependency(typeof(T),DependencyLifeTime.Transient));
+    }
+
+    public Dependency GetDependency(Type type)
+    {
+        return _dependencies.First(x => x.Type.Name == type.Name);
     }
 }

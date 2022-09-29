@@ -1,4 +1,7 @@
-﻿namespace DependencyInjection;
+﻿using System;
+using System.Linq;
+
+namespace DependencyInjection;
 
 public class DependencyResolver
 {
@@ -23,7 +26,7 @@ public class DependencyResolver
     public object GetService(Type type)
     {
         var dependency = _container.GetDependency(type);
-        var constructor = dependency.GetConstructors().Single();
+        var constructor = dependency.Type.GetConstructors().Single();
         var parameters = constructor.GetParameters().ToArray();
 
         if (parameters.Length > 0)
@@ -34,11 +37,28 @@ public class DependencyResolver
             {
                 parameterImplementations[i] =  GetService(parameters[i].ParameterType);
             }
-
-            return Activator.CreateInstance(dependency, parameterImplementations);
+            
+            return CreateImplementation(dependency, t => Activator.CreateInstance(t,parameterImplementations));
         }
 
+        return CreateImplementation(dependency, t => Activator.CreateInstance(t));
+    }
 
-        return Activator.CreateInstance(dependency);
+    public object CreateImplementation(Dependency dependency, Func<Type,object>  factory)
+    {
+        // check if the dependency is implemented
+        if (dependency.Implemented)
+        {
+            return dependency.Implementation;
+        }
+        
+        // if singleton then store the dependency.
+        var implementation = factory(dependency.Type);
+        if (dependency.LifeTime == DependencyLifeTime.Singleton)
+        {
+            dependency.AddImplementation(implementation);
+        }
+
+        return implementation;
     }
 }

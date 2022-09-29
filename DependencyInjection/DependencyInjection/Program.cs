@@ -1,4 +1,6 @@
-﻿namespace DependencyInjection;
+﻿using System;
+
+namespace DependencyInjection;
 
 public class Program
 {
@@ -25,13 +27,19 @@ public class Program
        
 
         var container = new DependencyContainer();
-        container.AddDependency(typeof(HelloService));
-        container.AddDependency<ServiceConsumer>();
+       
+        container.AddTransient<HelloService>();
+        container.AddTransient<ServiceConsumer>();
+        container.AddSingleton<MessageService>();
         var resolver = new DependencyResolver(container);
 
-        var service = resolver.GetService<ServiceConsumer>();
+        var service1 = resolver.GetService<ServiceConsumer>();
+        var service2 = resolver.GetService<ServiceConsumer>();
+        var service3 = resolver.GetService<ServiceConsumer>();
 
-        service.Print();
+        service1.Print();
+        service2.Print();
+        service3.Print();
 
     }
 }
@@ -54,22 +62,29 @@ public class ServiceConsumer
 public class HelloService
 {
     private readonly MessageService _message;
-
+    private int _random;
     public HelloService(MessageService message)
-    {
+    {   
+        _random = new Random().Next();
         _message = message;
     }
 
     public void Print()
     {
-        Console.WriteLine(_message.Message());
+        Console.WriteLine($"Hello {_random} hello service. {_message.Message()} ");
     }
 }
 
 public class MessageService
 {
+    private int _random;
+    public MessageService()
+    {
+        _random = new Random().Next();
+    }
+
     public string Message()
     {   
-        return "Message Service";
+        return $"Message Service {_random}";
     }
 }
