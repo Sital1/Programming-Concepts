@@ -14,6 +14,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/de21e876baeb9b64198ec33d7bc155ed60737930c38dea1bcaed0b014ab3ec9/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fdc158368347c231539e6652f64c35a32dcf846256b3cdd4139264727ec8d749/RuntimeParameterInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DependencyInjection/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,7 +65,8 @@
       <updated>1664393758855</updated>
       <workItem from="1664393764268" duration="2415000" />
       <workItem from="1664413538460" duration="7382000" />
-      <workItem from="1664460194442" duration="476000" />
+      <workItem from="1664460194442" duration="1135000" />
+      <workItem from="1664680591908" duration="59000" />
     </task>
     <servers />
   </component>
