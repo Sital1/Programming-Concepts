@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semaphore", "Semaphore\Semaphore.csproj", "{EC452DE2-5012-421F-AA1E-145872F3FA7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC452DE2-5012-421F-AA1E-145872F3FA7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC452DE2-5012-421F-AA1E-145872F3FA7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC452DE2-5012-421F-AA1E-145872F3FA7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC452DE2-5012-421F-AA1E-145872F3FA7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
