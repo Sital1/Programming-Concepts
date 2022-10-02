@@ -1,31 +1,33 @@
-﻿namespace VideoProcessingExample;
+﻿namespace ProducerConsumer;
 
 public class Program
 {
     public static void Main(string[] args)
-    {
-        
+    {   
+        Console.WriteLine("starting ...");
+        var channel = new Channel<string>();
+
+        Task.WaitAll( Consumer(channel),Producer(channel),Producer(channel),Producer(channel));
     }
     
     // producer
-    public Task Producer(IWrite<string> writer)
+    public  static async Task Producer(IWrite<string> writer)
     {
         for (int i = 0; i < 100; i++)
         {
             writer.Push(i.ToString());
-            Task.Delay(100).GetAwaiter().GetResult();
+            await Task.Delay(100);
         }
         writer.Complete();
-        return Task.CompletedTask;
     }
 
     // consumer
-    public async Task Consumer(IRead<string> reader)
+    public static async Task Consumer(IRead<string> reader)
     {
         while (!reader.IsComplete())
         {
             var msg = await reader.Read();
-            Console.Write("msg");
+            Console.WriteLine($"msg: {msg}");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace VideoProcessingExample;
+﻿namespace ProducerConsumer;
 
 public interface IRead<T>
 {
