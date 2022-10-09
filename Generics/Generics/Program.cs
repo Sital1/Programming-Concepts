@@ -2,6 +2,9 @@
 
 
 // Duck is eating Seeds at a Pond
+
+using System;
+
 new Duck().Eat(new Seeds());
 
 // looks ugly
